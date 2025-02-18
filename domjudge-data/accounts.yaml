@@ -1,0 +1,120 @@
+- id: m1
+  username: m1
+  password: da0AISHgIR
+  name: Middle School 1
+  type: team
+  team_id: 1
+- id: m2
+  username: m2
+  password: HUNdNKgRkM
+  name: Middle School 2
+  type: team
+  team_id: 2
+- id: m3
+  username: m3
+  password: NjmVUY9p1t
+  name: Middle School 3
+  type: team
+  team_id: 3
+- id: m4
+  username: m4
+  password: q93tRTSPx3
+  name: Middle School 4
+  type: team
+  team_id: 4
+- id: m5
+  username: m5
+  password: j4T8zqHw2x
+  name: Middle School 5
+  type: team
+  team_id: 5
+- id: m6
+  username: m6
+  password: cTwZ2j3TBl
+  name: Middle School 6
+  type: team
+  team_id: 6
+- id: m7
+  username: m7
+  password: kcAZ5L7fb7
+  name: Middle School 7
+  type: team
+  team_id: 7
+- id: m8
+  username: m8
+  password: dHNmE6F9N8
+  name: Middle School 8
+  type: team
+  team_id: 8
+- id: m9
+  username: m9
+  password: Drw1zuezZN
+  name: Middle School 9
+  type: team
+  team_id: 9
+- id: m10
+  username: m10
+  password: kWkoJBde8H
+  name: Middle School 10
+  type: team
+  team_id: 10
+- id: m11
+  username: m11
+  password: tX46raftIL
+  name: Middle School 11
+  type: team
+  team_id: 11
+- id: h1
+  username: h1
+  password: agHWEu8oua
+  name: High School 1
+  type: team
+  team_id: 12
+- id: h2
+  username: h2
+  password: HSIMUgpc9g
+  name: High School 2
+  type: team
+  team_id: 13
+- id: h3
+  username: h3
+  password: rxukL3puuf
+  name: High School 3
+  type: team
+  team_id: 14
+- id: h4
+  username: h4
+  password: CwkTb7r0Ol
+  name: High School 4
+  type: team
+  team_id: 15
+- id: h5
+  username: h5
+  password: CoMz5WYT8a
+  name: High School 5
+  type: team
+  team_id: 16
+- id: h6
+  username: h6
+  password: 22mBuzgNm1
+  name: High School 6
+  type: team
+  team_id: 17
+- id: h7
+  username: h7
+  password: XtedODu9Ll
+  name: High School 7
+  type: team
+  team_id: 18
+- id: h8
+  username: h8
+  password: XnBy0V1LTO
+  name: High School 8
+  type: team
+  team_id: 19
+- id: h9
+  username: h9
+  password: 2U5Tjb6V5q
+  name: High School 9
+  type: team
+  team_id: 20

@@ -1,0 +1,122 @@
+[
+	{
+		"id": "1",
+		"name": "Middle School 1",
+		"organization_id": "KENMORE",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "2",
+		"name": "Middle School 2",
+		"organization_id": "JEFFERSON",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "3",
+		"name": "Middle School 3",
+		"organization_id": "GUNSTON",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "4",
+		"name": "Middle School 4",
+		"organization_id": "SWANSON",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "5",
+		"name": "Middle School 5",
+		"organization_id": "DOROTHYHAMM",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "6",
+		"name": "Middle School 6",
+		"organization_id": "GUNSTON",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "7",
+		"name": "Middle School 7",
+		"organization_id": "HB",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "8",
+		"name": "Middle School 8",
+		"organization_id": "KENMORE",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "9",
+		"name": "Middle School 9",
+		"organization_id": "KENMORE",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "10",
+		"name": "Middle School 10",
+		"organization_id": "JEFFERSON",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "11",
+		"name": "Middle School 11",
+		"organization_id": "WILLIAMSBURG",
+		"group_ids": ["43"]
+	},
+	{
+		"id": "12",
+		"name": "High School 1",
+		"organization_id": "YHS",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "13",
+		"name": "High School 2",
+		"organization_id": "YHS",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "14",
+		"name": "High School 3",
+		"organization_id": "WL",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "15",
+		"name": "High School 4",
+		"organization_id": "WL",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "16",
+		"name": "High School 5",
+		"organization_id": "WL",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "17",
+		"name": "High School 6",
+		"organization_id": "TECH",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "18",
+		"name": "High School 7",
+		"organization_id": "WL",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "19",
+		"name": "High School 8",
+		"organization_id": "TECH",
+		"group_ids": ["42"]
+	},
+	{
+		"id": "20",
+		"name": "High School 9",
+		"organization_id": "WAKEFIELD",
+		"group_ids": ["42"]
+	}
+]

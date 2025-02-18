@@ -1,0 +1,68 @@
+[
+    {
+        "id": "KENMORE",
+        "name": "Kenmore Middle School",
+        "formal_name": "Kenmore Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "JEFFERSON",
+        "name": "Thomas Jefferson Middle School",
+        "formal_name": "Thomas Jefferson Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "GUNSTON",
+        "name": "Gunston Middle School",
+        "formal_name": "Gunston Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "SWANSON",
+        "name": "Swanson Middle School",
+        "formal_name": "Swanson Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "DOROTHYHAMM",
+        "name": "Dorothy Hamm Middle School",
+        "formal_name": "Dorothy Hamm Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "HB",
+        "name": "H-B Woodlawn Secondary Program",
+        "formal_name": "H-B Woodlawn Secondary Program",
+        "country": "USA",
+    },
+    {
+        "id": "WILLIAMSBURG",
+        "name": "Williamsburg Middle School",
+        "formal_name": "Williamsburg Middle School",
+        "country": "USA",
+    },
+    {
+        "id": "YHS",
+        "name": "Yorktown High School",
+        "formal_name": "Yorktown High School",
+        "country": "USA",
+    },
+    {
+        "id": "WL",
+        "name": "Washington-Liberty High School",
+        "formal_name": "Washington-Liberty High School",
+        "country": "USA",
+    },
+    {
+        "id": "TECH",
+        "name": "Arlington Tech",
+        "formal_name": "Arlington Tech",
+        "country": "USA",
+    },
+    {
+        "id": "WAKEFIELD",
+        "name": "Wakefield High School",
+        "formal_name": "Wakefield High School",
+        "country": "USA",
+    }
+]

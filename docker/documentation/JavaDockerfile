@@ -1,0 +1,4 @@
+FROM nginx:alpine-slim
+
+COPY jdk-17.0.14_doc-all/docs /usr/share/nginx/html/
+RUN chown -R nginx /usr/share/nginx/html/

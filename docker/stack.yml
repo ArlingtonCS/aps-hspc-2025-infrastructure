@@ -1,0 +1,250 @@
+services:
+  m1:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m1:/root/problems
+    ports:
+      - "8001:5000"
+    secrets:
+      - source: m1password
+        target: password
+  m2:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m2:/root/problems
+    ports:
+      - "8002:5000"
+    secrets:
+      - source: m2password
+        target: password
+  m3:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - hm3:/root/problems
+    ports:
+      - "8003:5000"
+    secrets:
+      - source: m3password
+        target: password
+  m4:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - hm4:/root/problems
+    ports:
+      - "8004:5000"
+    secrets:
+      - source: m4password
+        target: password
+  m5:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m5:/root/problems
+    ports:
+      - "8005:5000"
+    secrets:
+      - source: m5password
+        target: password
+  m6:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - hm6:/root/problems
+    ports:
+      - "8006:5000"
+    secrets:
+      - source: m6password
+        target: password
+  m7:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m7:/root/problems
+    ports:
+      - "8007:5000"
+    secrets:
+      - source: m7password
+        target: password
+  m8:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - hm8:/root/problems
+    ports:
+      - "8008:5000"
+    secrets:
+      - source: m8password
+        target: password
+  m9:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - hm9:/root/problems
+    ports:
+      - "8009:5000"
+    secrets:
+      - source: m9password
+        target: password
+  m10:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m10:/root/problems
+    ports:
+      - "8010:5000"
+    secrets:
+      - source: m10password
+        target: password
+  m11:
+    image: 192.168.1.1:5000/competition/middleschool:v1
+    volumes:
+      - m11:/root/problems
+    ports:
+      - "8011:5000"
+    secrets:
+      - source: m11password
+        target: password
+  h1:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h1:/root/problems
+    ports:
+      - "9001:5000"
+    secrets:
+      - source: h1password
+        target: password
+  h2:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h2:/root/problems
+    ports:
+      - "9002:5000"
+    secrets:
+      - source: h2password
+        target: password
+  h3:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h3:/root/problems
+    ports:
+      - "9003:5000"
+    secrets:
+      - source: h3password
+        target: password
+  h4:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h4:/root/problems
+    ports:
+      - "9004:5000"
+    secrets:
+      - source: h4password
+        target: password
+  h5:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h5:/root/problems
+    ports:
+      - "9005:5000"
+    secrets:
+      - source: h5password
+        target: password
+  h6:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h6:/root/problems
+    ports:
+      - "9006:5000"
+    secrets:
+      - source: h6password
+        target: password
+  h7:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h7:/root/problems
+    ports:
+      - "9007:5000"
+    secrets:
+      - source: h7password
+        target: password
+  h8:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h8:/root/problems
+    ports:
+      - "9008:5000"
+    secrets:
+      - source: h8password
+        target: password
+  h9:
+    image: 192.168.1.1:5000/competition/highschool:v1
+    volumes:
+      - h9:/root/problems
+    ports:
+      - "9009:5000"
+    secrets:
+      - source: h9password
+        target: password
+
+volumes:
+  hm9:
+  hm4:
+  hm6:
+  hm3:
+  hm8:
+  m1:
+  m2:
+  m3:
+  m4:
+  m5:
+  m6:
+  m7:
+  m8:
+  m9:
+  m10:
+  m11:
+  h1:
+  h2:
+  h3:
+  h4:
+  h5:
+  h6:
+  h7:
+  h8:
+  h9:
+
+secrets:
+  m1password:
+    file: ./secrets/m1password.txt
+  m2password:
+    file: ./secrets/m2password.txt
+  m3password:
+    file: ./secrets/m3password.txt
+  m4password:
+    file: ./secrets/m4password.txt
+  m5password:
+    file: ./secrets/m5password.txt
+  m6password:
+    file: ./secrets/m6password.txt
+  m7password:
+    file: ./secrets/m7password.txt
+  m8password:
+    file: ./secrets/m8password.txt
+  m9password:
+    file: ./secrets/m9password.txt
+  m10password:
+    file: ./secrets/m10password.txt
+  m11password:
+    file: ./secrets/m11password.txt
+  h1password:
+    file: ./secrets/h1password.txt
+  h2password:
+    file: ./secrets/h2password.txt
+  h3password:
+    file: ./secrets/h3password.txt
+  h4password:
+    file: ./secrets/h4password.txt
+  h5password:
+    file: ./secrets/h5password.txt
+  h6password:
+    file: ./secrets/h6password.txt
+  h7password:
+    file: ./secrets/h7password.txt
+  h8password:
+    file: ./secrets/h8password.txt
+  h9password:
+    file: ./secrets/h9password.txt

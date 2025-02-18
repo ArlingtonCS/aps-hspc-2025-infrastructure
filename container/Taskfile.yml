@@ -1,0 +1,30 @@
+version: '3'
+
+includes:
+  A-car-chase:
+    dir: ./A-car-chase
+    taskfile: ./LocalTaskfile.yml
+  B-find-the-mole:
+    dir: ./B-find-the-mole
+    taskfile: ./LocalTaskfile.yml
+  C-decrypt-the-hackers-message:
+    dir: ./C-decrypt-the-hackers-message
+    taskfile: ./LocalTaskfile.yml
+  D-combination-lock:
+    dir: ./D-combination-lock
+    taskfile: ./LocalTaskfile.yml
+  E-hidden-signals:
+    dir: ./E-hidden-signals
+    taskfile: ./LocalTaskfile.yml
+  F-find-secrets-txt:
+    dir: ./F-find-secrets-txt
+    taskfile: ./LocalTaskfile.yml
+  G-laser-beam:
+    dir: ./G-laser-beam
+    taskfile: ./LocalTaskfile.yml
+  H-portal-chaos:
+    dir: ./H-portal-chaos
+    taskfile: ./LocalTaskfile.yml
+  I-gadgets:
+    dir: ./I-gadgets
+    taskfile: ./LocalTaskfile.yml

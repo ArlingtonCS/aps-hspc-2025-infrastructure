@@ -1,0 +1,66 @@
+services:
+  mariadb:
+    image: 192.168.1.1:5000/mariadb:latest
+    command: mariadbd --skip-innodb-snapshot-isolation --max-allowed-packet=26777216
+    networks:
+      - domjudge
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_USER: domjudge
+      MYSQL_PASSWORD: djpw
+      MYSQL_DATABASE: domjudge
+  domserver:
+    image: 192.168.1.1:5000/domserver:v7
+    environment:
+      MYSQL_HOST: mariadb
+      MYSQL_USER: domjudge
+      MYSQL_DATABASE: domjudge
+      MYSQL_PASSWORD: djpw
+      MYSQL_ROOT_PASSWORD: rootpw
+      CONTAINER_TIMEZONE: America/New_York
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 2m
+    networks:
+      - domjudge
+    secrets:
+      - apipassword
+      - adminpassword
+  judgehost:
+    image: 192.168.1.1:5000/ixdotai/swarm-launcher:latest
+    deploy:
+      replicas: 0
+      placement:
+        max_replicas_per_node: 1
+    networks:
+      - domjudge
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      LAUNCH_PROJECT_NAME: "domjudge-judgehosts"
+      LAUNCH_SERVICE_NAME: "domjudge-judgehost"
+      LAUNCH_IMAGE: "192.168.1.1:5000/judgehost:v7"
+      LAUNCH_PRIVILEGED: "true"
+      LAUNCH_VOLUMES: "/sys/fs/cgroup:/sys/fs/cgroup"
+      LAUNCH_ENVIRONMENTS: "DAEMON_ID=0 CONTAINER_TIMEZONE=America/New_York JUDGEDAEMON_PASSWORD=Brxxyimno6TzC6JXN7Kaz4v1a"
+      LAUNCH_EXT_NETWORKS: "domjudge_domjudge"
+
+secrets:
+  apipassword:
+    file: ./apipassword.txt
+  adminpassword:
+    file: ./adminpassword.txt
+
+networks:
+  domjudge:
+    attachable: true
+
+volumes:
+  data:

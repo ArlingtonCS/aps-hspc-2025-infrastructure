@@ -1,0 +1,10 @@
+version: '3'
+
+tasks:
+  java:
+    cmds:
+      - java ./Sample.java < ./sample-input.txt
+  python:
+    cmds:
+      - python3 ./sample.py < ./sample-input.txt
+

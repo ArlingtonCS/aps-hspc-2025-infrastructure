@@ -1,0 +1,10 @@
+services:
+  javadoc:
+    image: 192.168.1.1:5000/docs/java
+    ports:
+      - "7000:80"
+  python:
+    image: 192.168.1.1:5000/docs/python
+    ports:
+      - "7001:80"
+
