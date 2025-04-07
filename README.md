@@ -45,8 +45,21 @@
 
 - This year we used a cluster of 11 Raspberry Pi 4s as part of a [Docker
   Swarm](https://docs.docker.com/engine/swarm/).
-- This worked but because the effort to organize all of the Pis, I would not
-  recommend doing that in the future.
+  - This worked but because the effort to organize all of the Pis, I would not
+    recommend doing that in the future.
+  - An Orange Pi 5 (a more powerful version of the Raspberry Pi) and my laptop
+    were the manager nodes
+  - The Orange Pi 5 also hosted the local docker registry which was needed
+    because the swarm did not have access to the global docker registry and our
+    images need to be private because they contain the problem data.
+    - Every image needs to be on this registry with the correct architecture or
+      things will break. This was one of the hardest parts of running the swarm. 
+    - Special care needs to be taken to copy over arm64 images from an x86_64
+      machine because they need to be copied directly from the global to local
+      registry. If the image gets downloaded locally first, the uploaded image
+      will only be x86_64. I used
+      [regclient](https://github.com/regclient/regclient/tree/main) to copy the
+      entire image.
 - We ran everything on docker, which is something I would recommend doing again
 - We hosted 3 main "stacks" of services
     - The team containers
@@ -59,6 +72,30 @@
         - Java documentation on an nginx container
         - Python documentation on an nginx container
 
+### Network
+
+- We did not use the APS network
+  - It allowed us to easily connect our servers without dealing with APS
+    restrictions
+  - It meant people couldn't cheat by looking things up
+  - The APS network is often unreliable
+- We used an old Unifi AP from 2010 because it's what I had lying around
+- The Raspberry Pis were connected through a network switch
+- The Unifi AP was just an access point, not a full router so we used an Orange
+  Pi 5 as a DHCP server and router.
+  - We used [Kea](https://kea.readthedocs.io/en/latest/arm/intro.html) as the
+    DHCP server (note debian packages it as kea not isc-kea like they say)
+  - I would just a full router instead of going this route
+
+### Judgehost Things
+
+- The judgehosts have some specific requirements for the kernel and cgroups so
+  it can limit memory
+- Follow [their manual for
+  this](https://www.domjudge.org/docs/manual/8.2/install-judgehost.html#linux-control-groups)
+  - My only note is they assume grub as the boot loader but as long as you can
+    edit the kernel commandline params any bootloader works.
+
 ## Custom DOMJudge Instance
 
 - We used a custom version of DOMJudge that allowed people to paste solutions in
@@ -68,3 +105,5 @@
   into `domjudge.tar.gz` and put it in the `docker` directory of the
   `domjudge-packaging` repository
 - Then build the containers with the `build.sh` script
+- I will build and publish an arm64 and x86_64 version of this image so you
+  don't have to build them
