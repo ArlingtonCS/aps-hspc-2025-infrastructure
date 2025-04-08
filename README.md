@@ -105,5 +105,7 @@
   into `domjudge.tar.gz` and put it in the `docker` directory of the
   `domjudge-packaging` repository
 - Then build the containers with the `build.sh` script
-- I will build and publish an arm64 and x86_64 version of this image so you
-  don't have to build them
+- The docker images that were used this year (these are images I rebuilt for
+  publishing but it's the same source and build process as this year) are public
+  on [our GitHub](https://github.com/orgs/ArlingtonCS/packages). The images have
+  both arm64 and amd64 support
