@@ -1,0 +1,3 @@
+FROM domjudge/domserver:latest
+
+COPY ./domserver_credentials.sh /scripts/start.d/domserver_credentials.sh

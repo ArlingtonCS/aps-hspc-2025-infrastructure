@@ -4,7 +4,10 @@ services:
     command: mariadbd --skip-innodb-snapshot-isolation --max-allowed-packet=26777216
     volumes:
       - data:/var/lib/mysql
+    networks:
+      - domserver
     environment:
+      # The passwords shouldn't really be plain-text but the db is only accessible by domserver, so it should be fine
       MYSQL_ROOT_PASSWORD: rootpw
       MYSQL_USER: domjudge
       MYSQL_PASSWORD: djpw
@@ -16,10 +19,15 @@ services:
       timeout: 5s
       retries: 3
   domserver:
-    image: ghcr.io/arlingtoncs/domserver:latest
+    build: 
+      context: ./
+      dockerfile: ./DOMServerDockerfile
     depends_on:
       mariadb:
         condition: service_healthy
+    networks:
+      - domserver
+      - judgehosts
     environment:
       MYSQL_HOST: mariadb
       MYSQL_USER: domjudge
@@ -28,6 +36,7 @@ services:
       MYSQL_ROOT_PASSWORD: rootpw
       CONTAINER_TIMEZONE: America/New_York
     ports:
+      # exposed on port 80, which is the default http port
       - "80:80"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost"]
@@ -42,7 +51,11 @@ services:
     build: 
       context: ./
       dockerfile: ./JudgeHostDockerfile
+    # must be privileged in order to set limits
     privileged: true
+    cgroup: host
+    networks:
+      - judgehosts
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
     depends_on:
@@ -57,6 +70,7 @@ services:
       JUDGEDAEMON_PASSWORD_FILE: /run/secrets/apipassword
 
 secrets:
+  # The passwords in these files should be changed
   apipassword:
     file: ./apipassword.txt
   adminpassword:
@@ -64,3 +78,10 @@ secrets:
 
 volumes:
   data:
+
+# The networks isolate the db and the judgehosts because the judgehosts run untrusted code
+networks:
+  domserver:
+    driver: bridge
+  judgehosts:
+    driver: bridge
