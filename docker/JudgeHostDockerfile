@@ -1,0 +1,7 @@
+FROM ghcr.io/arlingtoncs/judgehost:latest
+
+RUN apt update && apt install -y dnsutils
+
+COPY ./judgehost_start.sh /scripts/custom_start.sh
+
+CMD ["/scripts/custom_start.sh"]

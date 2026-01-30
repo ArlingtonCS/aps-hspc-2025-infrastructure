@@ -1,0 +1,66 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    command: mariadbd --skip-innodb-snapshot-isolation --max-allowed-packet=26777216
+    volumes:
+      - data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_USER: domjudge
+      MYSQL_PASSWORD: djpw
+      MYSQL_DATABASE: domjudge
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 3
+  domserver:
+    image: ghcr.io/arlingtoncs/domserver:latest
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      MYSQL_HOST: mariadb
+      MYSQL_USER: domjudge
+      MYSQL_DATABASE: domjudge
+      MYSQL_PASSWORD: djpw
+      MYSQL_ROOT_PASSWORD: rootpw
+      CONTAINER_TIMEZONE: America/New_York
+    ports:
+      - "80:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 2m
+    secrets:
+      - apipassword
+      - adminpassword
+  judgehost:
+    build: 
+      context: ./
+      dockerfile: ./JudgeHostDockerfile
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    depends_on:
+      domserver:
+        condition: service_healthy
+    deploy:
+      replicas: 4
+    secrets:
+      - apipassword
+    environment:
+      CONTAINER_TIMEZONE: "America/New_York"
+      JUDGEDAEMON_PASSWORD_FILE: /run/secrets/apipassword
+
+secrets:
+  apipassword:
+    file: ./apipassword.txt
+  adminpassword:
+    file: ./adminpassword.txt
+
+volumes:
+  data:
