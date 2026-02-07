@@ -68,6 +68,24 @@ services:
     environment:
       CONTAINER_TIMEZONE: "America/New_York"
       JUDGEDAEMON_PASSWORD_FILE: /run/secrets/apipassword
+  javadoc:
+    build: 
+      context: ./documentation
+      dockerfile: ./JavaDockerfile
+    ports:
+      - "7000:80"
+  python:
+    build: 
+      context: ./documentation
+      dockerfile: ./PythonDockerfile
+    ports:
+      - "7001:80"
+  cpp:
+    build: 
+      context: ./documentation
+      dockerfile: ./CppDockerfile
+    ports:
+      - "7002:80"
 
 secrets:
   # The passwords in these files should be changed

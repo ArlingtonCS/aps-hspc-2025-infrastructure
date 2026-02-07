@@ -1,5 +1,6 @@
 FROM nginx:alpine-slim
 
-ADD python-3.13-docs-html.tar.bz2 /tmp
-RUN cp -r /tmp/python-3.13-docs-html/* /usr/share/nginx/html/
+ADD python-3.14-docs-html.tar.bz2 /tmp
+RUN mkdir -p /usr/share/nginx/html/
+RUN cp -r /tmp/python-3.14-docs-html/* /usr/share/nginx/html/
 RUN chown -R nginx /usr/share/nginx/html/

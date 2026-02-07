@@ -1,0 +1,8 @@
+FROM nginx:alpine-slim
+
+ADD html-book-20250209.tar.xz /tmp/html
+RUN mkdir -p /usr/share/nginx/html/
+RUN mkdir -p /etc/nginx/
+COPY cpp_index.html /usr/share/nginx/html/index.html
+RUN cp -r /tmp/html/* /usr/share/nginx/html/
+RUN chown -R nginx /usr/share/nginx/html/
